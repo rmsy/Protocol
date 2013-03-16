@@ -1,14 +1,37 @@
-package tc.oc.projectares.protocol;
+package protocol;
 
-message Packet {
-  extensions 100 to max;
-}
+option java_package = "tc.oc.projectares.protocol";
+option java_outer_classname = "Protocol";
 
-message PlayerJoin {
-  extend Packet {
-    optional PlayerJoin player_join = 100;
+//  A Server --> Client packet.
+message ClientPacket {
+  //  The payload.
+  required Payload = 0;
+
+  message Payload {
+    // Represents the various different payloads that a packet may contain.
+    enum PayloadType {
+      // Represents a match update.
+  	  MATCH = 0;
+  	  //  Represents a player update.
+  	  PLAYER = 1;
+  	  //  Represents a team update.
+  	  TEAM = 2;
+  	  //  Represents an objective update.
+  	  OBJECTIVE = 3;
+  	  //  Represents a punishment update.
+  	  PUNISHMENT = 4;
+  	  //  Represents a map update.
+  	  MAP = 5;
+  	  //  Represents a textual message (for the user).
+  	  MESSAGE = 6;
+    }
+
+    //  The type of this payload.
+    required PayloadType = 0;
+
+    //  The payload.
+    extensions 1 to max;
   }
 
-  required string name = 1;
-  optional string display_name = 2;
 }
