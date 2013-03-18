@@ -1,0 +1,62 @@
+package tc.oc.projectares.protocol.type;
+
+import "setting.proto";
+
+option java_package = "tc.oc.projectares.protocol.type";
+option java_outer_classname = "PAPlayer";
+
+//  Represents a player.
+message Player {
+
+  //  The player's in-game name (IGN).
+  required string name = 1;
+
+  //  Whether or not the player is a friend of this player.
+  required bool friend = 2;
+
+  //  The player's display name (as it is displated in chat).
+  optional string display_name = 3;
+
+  //  Represents various staff ranks that a player may have.
+  enum StaffRank {
+  	//  Represents a server administrator.
+  	ADMINISTRATOR = 1;
+  	//  Represents a "supreme overlord".
+  	SUPREME_OVERLORD = 2;
+  	//  Represents a moderator.
+  	MODERATOR = 3;
+  	PLAYER = 4;
+  }
+
+  //  The player's staff rank.
+  //  (only necessary when the player is higher than a PLAYER; otherwise,
+  //  defaults apply)
+  optional StaffRank staff_rank = 4 [default=PLAYER];
+
+  //  Represents various donor perks that a player may have.
+  enum DonorPerk {
+  	//  Represents that this player does not have any donor perks.
+  	NONE = 1;
+  	//  Represents "Decanus".
+  	DECANUS = 2;
+  	//  Represents "Optio".
+  	OPTIO = 3;
+  	//  Represents "Centurion".
+  	CENTURION = 4;
+  	//  Represents "Dux".
+  	DUX = 5;
+  }
+
+  //  The donor perk level of this player.
+  optional DonorPerk donor_perk_level = 5 [default=NONE];
+
+  //  The time (in seconds since epoch) when the player's donor perks will
+  //  expire.
+  optional sint64 perk_expiration_date = 6;
+
+  //  The amount (in USD) that the player has donated to Project Ares.
+  optional double donation_amount = 7;
+
+  //  The player's BukkitSettings.
+  repeated Setting settings = 8;
+}

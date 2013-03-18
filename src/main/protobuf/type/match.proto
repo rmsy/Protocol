@@ -1,0 +1,18 @@
+package tc.oc.projectares.protocol.type;
+
+option java_package = "tc.oc.projectares.protocol.type";
+option java_outer_classname = "PAMatch";
+
+//  Represents a match.
+message Match {
+
+  //  The map's unique identifier.
+  required string uid = 1;
+
+  //  The time at which the match was started.
+  optional sint64 start_time = 2;
+
+  //  The time at which the match should stop (if it is a timed map) or did
+  //  stop (if it is already complete).
+  optional sint64 stop_time = 3;
+}

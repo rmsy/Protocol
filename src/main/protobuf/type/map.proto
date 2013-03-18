@@ -1,0 +1,35 @@
+package tc.oc.projectares.protocol.type;
+
+import "contributor.proto";
+import "team.proto";
+
+option java_package = "tc.oc.projectares.protocol.type";
+option java_outer_classname = "PAMap";
+
+//  Represents a map.
+message Map {
+
+  //  The map's name, as defined on maps.oc.tc
+  //    (used to fetch metadata from maps repository (possibly?))
+  required string name = 1;
+
+  //  The map's teams.
+  //    (only necessary when the server is cycling to a new map and the client
+  //	needs the map's information.)
+  repeated Team teams = 2;
+
+  //  The map's authors.
+  //    (only necessary when the server is cycling to a new map and the client
+  //	needs the map's information.)  
+  repeated string authors = 3;
+
+  //  The map's contributors.
+  //    (only necessary when the server is cycling to a new map and the client
+  //	needs the map's information.)
+  repeated Contributor contributors = 4;
+
+  //  The map's rules.
+  //    (only necessary when the server is cycling to a new map and the client
+  //	needs the map's information.)
+  repeated string rules = 5;
+}

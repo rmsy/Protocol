@@ -1,0 +1,13 @@
+package tc.oc.projectares.protocol.type;
+
+option java_package = "tc.oc.projectares.protocol.type";
+option java_outer_classname = "PAContributor";
+
+//  Represents a map contributor and their contributions.
+message Contributor {
+  //  The name to be displayed for this contributor.
+  required string name = 1;
+
+  //  The contributor's contributions.
+  repeated string contributions = 2;
+}

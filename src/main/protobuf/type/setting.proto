@@ -1,0 +1,14 @@
+package tc.oc.projectares.protocol.type;
+
+option java_package = "tc.oc.projectares.protocol.type";
+option java_outer_classname = "BukkitSetting";
+
+//  Represents a setting (from BukkitSettings).
+message Setting {
+
+  //  The ID of the setting.
+  required string id = 1;
+
+  //  The ID of the selected preference.
+  required string preference = 2;
+}
