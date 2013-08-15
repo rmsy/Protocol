@@ -1,33 +1,8 @@
-# Eclipse stuff
-/.classpath
-/.project
-/.settings
+# Maven
+target/
 
-# netbeans
-/nbproject
-
-# maven
-/target
-
-# vim
-*~
-.*.sw[a-p]
-
-# various other potential build files
-/build
-/bin
-/dist
-/manifest.mf
-
-# Mac filesystem dust
-/.DS_Store
-
-# intellij
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# protoc
-/protoc
-/protoc.exe
+# Java
+*.class
+*.jar
+*.war
+*.ear
